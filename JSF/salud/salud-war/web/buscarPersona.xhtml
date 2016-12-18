@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Buscar persona</title>
+    </h:head>
+    <h:body>
+       <f:view>
+            <h:form>
+                <h1><h:outputText value="Buscar personas"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Nombres:"/>
+                    <h:selectOneListbox id="npersona" size="1" value="#{personaAdmin.nombre}"
+                                        tabindex="1" onselect="#{personaAdm.nomPer}">
+                        <f:selectItems value="#{personaAdmin.nombresPer}"/>
+                    </h:selectOneListbox>
+                    <h:outputText value="Idpersona:"/>
+                    <h:outputText value="#{personaAdmin.persona.idpersona}" title="Idpersona"/>
+                    <h:outputText value="Nombre:"/>
+                    <h:outputText value="#{personaAdmin.persona.nombre}" title="Nombre"/>
+                    <h:outputText value="Fechanac:"/>
+                    <h:outputText value="#{personaAdmin.persona.fechanac}" title="Fechanac">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="Estatura:"/>
+                    <h:outputText value="#{personaAdmin.persona.estatura}" title="Estatura"/>
+                    <h:outputText value="Sexo:"/>
+                    <h:outputText value="#{personaAdmin.persona.sexo}" title="Sexo"/>
+                </h:panelGrid>
+                <h:commandButton value="Buscar" action="buscarPersona" actionListener="#{personaAdmin.mostrarPersona}"/>
+                <h:commandButton value="Editar" action="editar" actionListener="#{personaAdmin.mostrarPersona}"/>
+                <h:commandButton value="Año Nac" action="#{personaAdmin.edad}" />
+                <h:commandButton value="Incio" action="index" />
+            </h:form>
+        </f:view>
+      
+        
+        
+     </h:body>
+</html>
+
